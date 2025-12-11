@@ -42,19 +42,26 @@
 
 ```text
 Project_Warehouse_backend/
-└── app/
-    ├── main.py               # Точка входа FastAPI
-    ├── db.py                 # Подключение к БД (SQLAlchemy engine / SessionLocal / Base)
-    ├── models.py             # SQLAlchemy-модели по ER-диаграмме
-    ├── schemas.py            # Pydantic-схемы (DTO) для API
-    ├── seed.py               # Скрипт заполнения БД тестовыми данными
-    ├── alembic.ini
-    ├── alembic/              # Миграции Alembic (init_schema)
-    ├── Dockerfile            # Образ backend-сервиса
-    ├── docker-compose.yml    # backend + db (PostgreSQL)
-    └── requirements.txt
+├── app/
+│   ├── main.py                   # Точка входа FastAPI
+│   ├── db.py                     # Подключение к PostgreSQL (engine, SessionLocal, Base)
+│   ├── models.py                 # SQLAlchemy-модели (таблицы по ER-диаграмме)
+│   ├── schemas.py                # Pydantic-схемы (DTO) для API
+│   ├── seed.py                   # Генератор тестовых данных (seed)
+│   ├── requirements.txt          # Python-зависимости
+│   ├── alembic.ini               # Конфигурация Alembic
+│   └── alembic/
+│       ├── env.py                # Настройки автогенерации миграций
+│       ├── script.py.mako        # Шаблон для новых migration-файлов
+│       └── versions/
+│           └── 9be161fa8ad4_init_schema.py
+│
+├── Dockerfile                    # Docker-образ backend сервиса
+├── docker-compose.yml            # Backend + PostgreSQL
+├── .gitignore                    # Файлы, которые не должны попадать в репозиторий
+└── README.md                     # Инструкция запуска + отчёт
 
-##
+---
 
 ## 4. Запуск локально (без Docker)
 
