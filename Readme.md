@@ -60,7 +60,7 @@ Project_Warehouse_backend/
 ├── docker-compose.yml            # Backend + PostgreSQL
 ├── .gitignore                    # Файлы, которые не должны попадать в репозиторий
 └── README.md                     # Инструкция запуска + отчёт
-```text
+```
 ---
 
 ## 4. Запуск локально (без Docker)
