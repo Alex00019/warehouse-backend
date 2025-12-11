@@ -54,6 +54,7 @@ Project_Warehouse_backend/
     ├── docker-compose.yml    # backend + db (PostgreSQL)
     └── requirements.txt
 
+##
 
 ## 4. Запуск локально (без Docker)
 
