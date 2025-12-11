@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Виртуальные окружения
+venv/
+env/
+.env/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+
+# Разное
+*.log
+.DS_Store
+
+
+*.docx

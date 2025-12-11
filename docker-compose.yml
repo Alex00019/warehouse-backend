@@ -1,0 +1,29 @@
+services:
+  db:
+    image: postgres:16
+    container_name: warehouse_db
+    environment:
+      POSTGRES_USER: warehouse_user
+      POSTGRES_PASSWORD: warehouse_password
+      POSTGRES_DB: warehouse_db
+    ports:
+      # Снаружи хоста порт 15432, внутри контейнера 5432
+      - "15432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+  backend:
+    build: .
+    container_name: warehouse_backend
+    depends_on:
+      - db
+    environment:
+      # В докере backend ходит в "db:5432"
+      DATABASE_URL: postgresql://warehouse_user:warehouse_password@db:5432/warehouse_db
+    ports:
+      - "8000:8000"
+    # Можно, но не обязательно, задать рабочую директорию и команду,
+    # но у нас CMD уже прописан в Dockerfile, так что не трогаем.
+
+volumes:
+  db_data:
