@@ -1,14 +1,18 @@
-# app/seed_big.py
-
 import random
-from datetime import date, timedelta
+from datetime import date, timedelta  # ← вот это добавили
 
+from sqlalchemy.orm import Session
 from sqlalchemy import text
 
-from .db import SessionLocal
-from . import models
-
-
+try:
+    # когда запускаем локально как модуль: python -m app.seed
+    from app.db import SessionLocal
+    from app import models
+except ImportError:
+    # когда запускаем в контейнере из /code: python seed.py
+    from db import SessionLocal
+    import models
+    
 def seed_big():
     db = SessionLocal()
     try:
